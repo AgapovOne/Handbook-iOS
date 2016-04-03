@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xNX-S1-qCb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Контакты-->
+        <scene sceneID="ZsC-eQ-SIF">
+            <objects>
+                <tableViewController id="cyE-nM-53B" customClass="HandbookTableViewController" customModule="Handbook" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Контакты" id="UnW-uX-wpc"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oLY-ul-yBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1026" y="131"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="t1n-ha-q6u">
+            <objects>
+                <tabBarController id="xNX-S1-qCb" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="hBn-JI-5Mp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="1nr-Vq-mO8" kind="relationship" relationship="viewControllers" id="cNr-Ft-lNq"/>
+                        <segue destination="zcx-nj-AQa" kind="relationship" relationship="viewControllers" id="in5-fQ-QDA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3oc-J0-MSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="99" y="339"/>
+        </scene>
+        <!--Информация-->
+        <scene sceneID="Eh5-eC-Mo7">
+            <objects>
+                <tableViewController id="afJ-TF-qD1" customClass="SettingsTableViewController" customModule="Handbook" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Информация" id="hmx-cN-pku"/>
+                    <connections>
+                        <segue destination="49S-3o-3ZB" kind="modal" identifier="SettingsToRegisterSegue" id="X91-2j-qgS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p0b-Rj-VHV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1130" y="808"/>
+        </scene>
+        <!--PhoneNumber-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Handbook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="PhoneNumber" id="BYZ-38-t0r" customClass="RegistrationViewController" customModule="Handbook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,12 +58,119 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3h1-PO-TGV">
+                                <rect key="frame" x="16" y="179" width="288" height="50"/>
+                                <color key="backgroundColor" red="0.15868747234344482" green="0.21822044253349304" blue="0.30320093035697937" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Зарегистрироваться">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s3g-02-9ck"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Введите свой номер телефона" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OTH-gq-KbO" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
+                                <rect key="frame" x="16" y="121" width="288" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ixl-N3-5l9"/>
+                                </constraints>
+                                <color key="textColor" red="0.15868747234344482" green="0.21822044253349304" blue="0.30320093035697937" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Контактная книга организаций доступна только сотрудникам." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ei5-Fj-xoc">
+                                <rect key="frame" x="16" y="72" width="288" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ei5-Fj-xoc" secondAttribute="trailing" id="2x9-8m-nwj"/>
+                            <constraint firstItem="3h1-PO-TGV" firstAttribute="height" secondItem="OTH-gq-KbO" secondAttribute="height" id="9x2-Ne-vbb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OTH-gq-KbO" secondAttribute="trailing" id="BK8-3C-FIy"/>
+                            <constraint firstItem="3h1-PO-TGV" firstAttribute="width" secondItem="OTH-gq-KbO" secondAttribute="width" id="Kxb-hS-Ekr"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="OTH-gq-KbO" secondAttribute="leading" id="Nz9-AL-gpD"/>
+                            <constraint firstItem="OTH-gq-KbO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ts4-za-vzX"/>
+                            <constraint firstItem="OTH-gq-KbO" firstAttribute="top" secondItem="Ei5-Fj-xoc" secondAttribute="bottom" constant="8" id="Y7v-4X-WWU"/>
+                            <constraint firstItem="Ei5-Fj-xoc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cxM-li-33y"/>
+                            <constraint firstItem="3h1-PO-TGV" firstAttribute="top" secondItem="OTH-gq-KbO" secondAttribute="bottom" constant="8" id="fan-fa-JlJ"/>
+                            <constraint firstItem="3h1-PO-TGV" firstAttribute="centerX" secondItem="OTH-gq-KbO" secondAttribute="centerX" id="jJB-BM-r9c"/>
+                            <constraint firstItem="Ei5-Fj-xoc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="rfj-gU-59c"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Добро пожаловать" id="V0r-Vn-VG4"/>
+                    <connections>
+                        <outlet property="button" destination="3h1-PO-TGV" id="3Yd-GA-wMO"/>
+                        <outlet property="textField" destination="OTH-gq-KbO" id="c5F-1l-hEA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="378"/>
+            <point key="canvasLocation" x="-879" y="339"/>
+        </scene>
+        <!--Contacts-->
+        <scene sceneID="NqF-rN-3xR">
+            <objects>
+                <navigationController title="Contacts" automaticallyAdjustsScrollViewInsets="NO" id="1nr-Vq-mO8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="HQm-aL-cme"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DaA-Y9-8Kv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cyE-nM-53B" kind="relationship" relationship="rootViewController" id="8wi-Mc-iEJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cJD-d7-MSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="598" y="136"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="7Dv-Za-6bU">
+            <objects>
+                <navigationController title="Settings" automaticallyAdjustsScrollViewInsets="NO" id="zcx-nj-AQa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="more" id="14b-Bc-fhD"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t8T-bj-TgX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="JhK-t8-ZI8">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="afJ-TF-qD1" kind="relationship" relationship="rootViewController" id="qkm-Do-Qfg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KEV-he-RsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="598" y="808"/>
+        </scene>
+        <!--Registration-->
+        <scene sceneID="imP-Pl-KUs">
+            <objects>
+                <navigationController title="Registration" automaticallyAdjustsScrollViewInsets="NO" id="49S-3o-3ZB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ny6-se-We4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="HQa-lD-ofF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CYN-x1-Knc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1314" y="339"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.15868747234344482" green="0.21822044253349304" blue="0.30320093035697937" alpha="1" colorSpace="calibratedRGB"/>
 </document>

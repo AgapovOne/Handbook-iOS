@@ -86,12 +86,22 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Handbook/Alamofire.framework"
   install_framework "Pods-Handbook/Async.framework"
+  install_framework "Pods-Handbook/ChameleonFramework.framework"
+  install_framework "Pods-Handbook/DGElasticPullToRefresh.framework"
+  install_framework "Pods-Handbook/Dollar.framework"
+  install_framework "Pods-Handbook/Eureka.framework"
   install_framework "Pods-Handbook/Loggerithm.framework"
   install_framework "Pods-Handbook/PhoneNumberKit.framework"
+  install_framework "Pods-Handbook/Watchdog.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Handbook/Alamofire.framework"
   install_framework "Pods-Handbook/Async.framework"
+  install_framework "Pods-Handbook/ChameleonFramework.framework"
+  install_framework "Pods-Handbook/DGElasticPullToRefresh.framework"
+  install_framework "Pods-Handbook/Dollar.framework"
+  install_framework "Pods-Handbook/Eureka.framework"
   install_framework "Pods-Handbook/Loggerithm.framework"
   install_framework "Pods-Handbook/PhoneNumberKit.framework"
+  install_framework "Pods-Handbook/Watchdog.framework"
 fi

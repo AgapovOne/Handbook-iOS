@@ -9,6 +9,17 @@ target 'Handbook' do
   pod 'PhoneNumberKit'
   pod 'Alamofire'
   pod 'Loggerithm'
+  pod 'Dollar'
+  pod 'Watchdog'
+  # UI
+  pod 'ChameleonFramework/Swift'
+  pod 'Eureka'
+  pod 'DGElasticPullToRefresh'
+  # Fabric
+  pod 'Fabric'
+  pod 'Crashlytics'
+  pod 'Digits'
+  pod 'TwitterCore'
 end
 
 target 'HandbookTests' do
