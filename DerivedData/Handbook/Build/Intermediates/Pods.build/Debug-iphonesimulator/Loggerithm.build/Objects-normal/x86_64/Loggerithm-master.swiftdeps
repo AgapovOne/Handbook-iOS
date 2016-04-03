@@ -1,0 +1,7 @@
+version: "Apple Swift version 2.2 (swiftlang-703.0.18.1 clang-703.0.29)"
+options: "22ed67452647077d62f3a9ad1baefe62"
+build_time: [512990534, 856611000]
+inputs:
+  "/Users/agapov/Developer/Handbook/Pods/Loggerithm/Source/Color.swift": [512945967, 0]
+  "/Users/agapov/Developer/Handbook/Pods/Loggerithm/Source/Loggerithm.swift": [512945967, 0]
+  "/Users/agapov/Developer/Handbook/Pods/Loggerithm/Source/Type.swift": [512945967, 0]

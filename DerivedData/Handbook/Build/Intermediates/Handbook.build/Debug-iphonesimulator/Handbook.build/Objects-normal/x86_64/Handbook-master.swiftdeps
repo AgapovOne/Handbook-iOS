@@ -1,0 +1,6 @@
+version: "Apple Swift version 2.2 (swiftlang-703.0.18.1 clang-703.0.29)"
+options: "ad8b70f5b4aac5bcd60d872024ff926d"
+build_time: [512990000, 287351000]
+inputs:
+  "/Users/agapov/Developer/Handbook/Handbook/ViewController.swift": [512861959, 0]
+  "/Users/agapov/Developer/Handbook/Handbook/AppDelegate.swift": [512861959, 0]

@@ -1,0 +1,6 @@
+framework module Pods_Handbook {
+  umbrella header "Pods-Handbook-umbrella.h"
+
+  export *
+  module * { export * }
+}

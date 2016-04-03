@@ -1,0 +1,5 @@
+version: "Apple Swift version 2.2 (swiftlang-703.0.18.1 clang-703.0.29)"
+options: "f47ed046f1971d67d984ef6b00713c5c"
+build_time: [512990531, 242828000]
+inputs:
+  "/Users/agapov/Developer/Handbook/Pods/AsyncSwift/Source/Async.swift": [512990519, 0]
