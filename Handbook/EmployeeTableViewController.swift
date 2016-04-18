@@ -35,9 +35,6 @@ class EmployeeTableViewController: FormViewController {
       $0.title = "Мобильный"
       $0.value = emp.phoneNumber
     }
-    .onCellSelection({ (cell, row) in
-      UIApplication.sharedApplication().openURL(NSURL(string: "tel://+\(emp.phoneNumber)")!)
-    })
     <<< LabelRow() {
       $0.title = "Рабочий телефон"
       $0.value = emp.workNumber
@@ -45,6 +42,13 @@ class EmployeeTableViewController: FormViewController {
     <<< LabelRow() {
       $0.title = "Остальные телефоны"
       $0.value = emp.additionalNumbers
+    }
+    <<< ActionSheetRow<String>() {
+      $0.title = "Позвонить"
+      $0.selectorTitle = "Кому вы хотите позвонить?"
+      $0.options = [emp.phoneNumber, emp.workNumber]
+      $0.value = "Позвонить"
+      $0.
     }
   }
 }

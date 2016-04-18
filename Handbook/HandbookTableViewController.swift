@@ -83,7 +83,6 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
             self.employees.append(employee)
           }
           log.info(employees.debugDescription)
-//          { name: 'Кучин Сергей Сергеевич', phoneNumber: '79505439887', workNumber: '2043', email: 'kuchinsergey5002@gmail.com', additionalNumbs: '73432861080', companyName: 'ООО Ромашка', jobName: 'Инженер-программист', departmentName: 'Отдел разработок' }
           log.info("Finished loading")
           self.employees.sortInPlace({$0.name < $1.name})
           tableView.dg_stopLoading()
@@ -116,14 +115,6 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
   }
 
   // MARK: - DZNEmptyDataSetDelegate
-//  func emptyDataSetShouldDisplay(scrollView: UIScrollView) -> Bool {
-//    return true
-//  }
-  
-//  func emptyDataSetShouldFadeIn(scrollView: UIScrollView) -> Bool {
-//    return true
-//  }
-  
   func emptyDataSetShouldAllowScroll(scrollView: UIScrollView) -> Bool {
     return true
   }
