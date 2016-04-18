@@ -24,12 +24,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DZNEmptyDataSet.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Dollar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Eureka.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KeychainSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,6 +59,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Watchdog.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,17 +72,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0AAD490615372433B29854412A64538C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>115824B7CB2E76E5ACB836A251E79404</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>234D540AECD768FB99738AD73D9038A6</key>
+		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4CDE0242A3194312DC48D50BA8E750FE</key>
+		<key>4C698C648EE4D43C6B8BE0BE1FE91737</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -103,6 +123,16 @@
 			<true/>
 		</dict>
 		<key>C050EB90AEDA8E52289FB70BB490AC44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E1AACD6814034DF06704CEF71A681D99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EAF4A2C2E6E9C1AF17734F61BD692749</key>
 		<dict>
 			<key>primary</key>
 			<true/>

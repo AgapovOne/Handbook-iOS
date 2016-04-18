@@ -14,8 +14,13 @@ class SettingsTableViewController: FormViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    form +++=
-      Section("Информация")
+    form =
+      Section("Регистрация")
+        <<< ButtonRow() {
+          $0.title = "Пройти регистрацию"
+          $0.presentationMode = .SegueName(segueName: "SettingsToRegisterSegue", completionCallback:{  vc in vc.dismissViewControllerAnimated(true, completion: nil) })
+        }
+      +++ Section("Информация")
         <<< LabelRow () {
           $0.title = "Организация"
           $0.value = "УрФУ"
@@ -24,9 +29,9 @@ class SettingsTableViewController: FormViewController {
           $0.title = "Супер приложение"
           $0.value = true
         }
-        <<< ButtonRow() {
-          $0.title = "Зарегистрироваться"
-          $0.presentationMode = .SegueName(segueName: "SettingsToRegisterSegue", completionCallback:{  vc in vc.dismissViewControllerAnimated(true, completion: nil) })
+        <<< LabelRow () {
+          $0.title = "Версия"
+          $0.value = UIApplication.versionBuild()
         }
   }
 }

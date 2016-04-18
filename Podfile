@@ -8,13 +8,16 @@ target 'Handbook' do
   pod 'AsyncSwift'
   pod 'PhoneNumberKit'
   pod 'Alamofire'
+  pod 'SwiftyJSON'
   pod 'Loggerithm'
   pod 'Dollar'
   pod 'Watchdog'
+  pod 'KeychainSwift'
   # UI
   pod 'ChameleonFramework/Swift'
   pod 'Eureka'
   pod 'DGElasticPullToRefresh'
+  pod 'DZNEmptyDataSet'
   # Fabric
   pod 'Fabric'
   pod 'Crashlytics'

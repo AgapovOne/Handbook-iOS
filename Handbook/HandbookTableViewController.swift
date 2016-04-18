@@ -7,29 +7,43 @@
 //
 
 import UIKit
+import KeychainSwift
+import SwiftyJSON
 import DGElasticPullToRefresh
+import Dollar
 
-class HandbookTableViewController: UITableViewController {
+class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+  
+  lazy var employees: [Employee]? = nil
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    // Initialize tableView
-    let loadingView = DGElasticPullToRefreshLoadingViewCircle()
-    loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
-    tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
-      // Add your logic here
-      // Do not forget to call dg_stopLoading() at the end
-      self?.tableView.dg_stopLoading()
-      }, loadingView: loadingView)
-    tableView.dg_setPullToRefreshFillColor(UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0))
-    tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
-    
+    let phone = KeychainSwift().get("apiUrl")
+    if (phone == nil) {
+      self.performSegueWithIdentifier("initialRegistrationSegue", sender: nil)
+    } else {
+      // Initialize tableView
+      let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+      loadingView.tintColor = globalTint
+      tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+        
+        self?.loadData((self?.tableView)!)
+        // Do not forget to call dg_stopLoading() at the end
+        self?.tableView.dg_stopLoading()
+        }, loadingView: loadingView)
+      tableView.dg_setPullToRefreshFillColor(globalTintBackground)
+      tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
+      
+      tableView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+      tableView.dataSource = self
+      tableView.delegate = self
+      tableView.emptyDataSetSource = self
+      tableView.emptyDataSetDelegate = self
+      tableView.tableFooterView = UIView()
+      
+      tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -41,71 +55,121 @@ class HandbookTableViewController: UITableViewController {
   deinit {
     tableView.dg_removePullToRefresh()
   }
-  // MARK: - Table view data source
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    // #warning Incomplete implementation, return the number of sections
+  func loadData(tableView:UITableView) -> Bool {
+    guard let api = KeychainSwift().get("apiUrl") else {return false}
+    guard let employees = KeychainSwift().get("requests.employees") else {return false}
+    guard let phone = KeychainSwift().get("phoneNumber") else {return false}
+    guard let key = KeychainSwift().get("key") else {return false}
+    let urlPhone = urlPhoneNumber(phone)
+    
+    NetworkManager.sharedInstance.defaultManager.request(.GET, "\(api)\(employees)?phoneNumber=\(urlPhone)&key=\(key)")
+      .validate()
+      .responseJSON { (res) in
+        switch res.result {
+        case .Failure(let err):
+          log.error(err.debugDescription)
+          tableView.dg_stopLoading()
+        case .Success(let data):
+          let json = JSON(data)
+          guard let array = json.array else {tableView.dg_stopLoading();return}
+          $.each(array) { (index, item) in
+            let employee = Employee(
+              name: item["name"].string,
+              phoneNumber: item["phoneNumber"].string,
+              workNumber: item["workNumber"].string,
+              email: item["email"].string,
+              additionalNumbers: item["additionalNumbs"].string,
+              company: item["companyName"].string,
+              job: item["jobName"].string,
+              department: item["departmentName"].string)
+            self.employees?.append(employee)
+          }
+//          { name: 'Кучин Сергей Сергеевич', phoneNumber: '79505439887', workNumber: '2043', email: 'kuchinsergey5002@gmail.com', additionalNumbs: '73432861080', companyName: 'ООО Ромашка', jobName: 'Инженер-программист', departmentName: 'Отдел разработок' }
+          log.info("Finished loading")
+          tableView.dg_stopLoading()
+          tableView.reloadData()
+        }
+    }
+    return true
+  }
+  
+  func titleForEmptyDataSet(scrollView: UIScrollView) -> NSAttributedString? {
+    
+    let attributes = [NSFontAttributeName: UIFont.boldSystemFontOfSize(20), NSForegroundColorAttributeName: UIColor.grayColor()]
+    
+    return NSAttributedString.init(string: "Ничего не найдено", attributes: attributes)
+  }
+  
+  func descriptionForEmptyDataSet(scrollView: UIScrollView) -> NSAttributedString? {
+    
+    let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(16), NSForegroundColorAttributeName: UIColor.lightGrayColor()]
+    
+    return NSAttributedString.init(string: "Потяните экран вниз, чтобы получить список сотрудников", attributes: attributes)
+  }
+  
+  func backgroundColorForEmptyDataSet(scrollView: UIScrollView) -> UIColor? {
+    return UIColor.whiteColor()
+  }
+  
+  func verticalOffsetForEmptyDataSet(scrollView: UIScrollView) -> CGFloat {
     return 0
+  }
+
+  // MARK: - DZNEmptyDataSetDelegate
+  func emptyDataSetShouldDisplay(scrollView: UIScrollView) -> Bool {
+    return true
+  }
+  
+  func emptyDataSetShouldFadeIn(scrollView: UIScrollView) -> Bool {
+    return true
+  }
+  
+  func emptyDataSetShouldAllowScroll(scrollView: UIScrollView) -> Bool {
+    return true
+  }
+  
+  func emptyDataSetShouldAllowTouch(scrollView: UIScrollView) -> Bool {
+    return true
+  }
+  
+  func emptyDataSet(scrollView: UIScrollView, didTapView: UIView) {
+    print("didTapView: \(didTapView)")
+    self.loadData(tableView)
+  }
+  
+  func emptyDataSetWillAppear(scrollView: UIScrollView) {
+    print("emptyDataSetWillAppear")
+  }
+  
+  func emptyDataSetDidAppear(scrollView: UIScrollView) {
+    print("emptyDataSetDidAppear")
+  }
+  
+  func emptyDataSetWillDisappear(scrollView: UIScrollView) {
+    print("emptyDataSetWillDisappear")
+  }
+  
+  func emptyDataSetDidDisappear(scrollView: UIScrollView) {
+    print("emptyDataSetDidDisappear")
+  }
+
+  // MARK: - UITableViewDataSource
+  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return 1
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // #warning Incomplete implementation, return the number of rows
-    return 0
+    guard let emps = employees else { return 0 }
+    return emps.count
   }
   
-  /*
-   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-   let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-   
-   // Configure the cell...
-   
-   return cell
-   }
-   */
-  
-  /*
-   // Override to support conditional editing of the table view.
-   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-   // Return false if you do not want the specified item to be editable.
-   return true
-   }
-   */
-  
-  /*
-   // Override to support editing the table view.
-   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-   if editingStyle == .Delete {
-   // Delete the row from the data source
-   tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-   } else if editingStyle == .Insert {
-   // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-   }
-   }
-   */
-  
-  /*
-   // Override to support rearranging the table view.
-   override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-   
-   }
-   */
-  
-  /*
-   // Override to support conditional rearranging of the table view.
-   override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-   // Return false if you do not want the item to be re-orderable.
-   return true
-   }
-   */
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    guard let emps = employees else {return tableView.dequeueReusableCellWithIdentifier("employeeCell", forIndexPath: indexPath)}
+    let cell = tableView.dequeueReusableCellWithIdentifier("employeeCell", forIndexPath: indexPath)
+    cell.textLabel?.text = emps[indexPath.row].name
+    cell.detailTextLabel?.text = emps[indexPath.row].phoneNumber
+    
+    return cell
+  }
 }

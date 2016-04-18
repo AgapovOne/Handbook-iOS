@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D247BE0A2FF8187CE48AB19 /* Pods_Handbook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFA950594CB59724F84939 /* Pods_Handbook.framework */; };
+		8DE4EE9B1CC41D4B00FABE5C /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE4EE9A1CC41D4B00FABE5C /* Structures.swift */; };
 		8DEC16E71CAF2207004F87B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC16E61CAF2207004F87B3 /* AppDelegate.swift */; };
 		8DEC16EC1CAF2207004F87B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DEC16EA1CAF2207004F87B3 /* Main.storyboard */; };
 		8DEC16EE1CAF2207004F87B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DEC16ED1CAF2207004F87B3 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 		8DEC17101CB137F6004F87B3 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC170F1CB137F6004F87B3 /* Misc.swift */; };
 		8DEC17121CB139BD004F87B3 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC17111CB139BD004F87B3 /* RegistrationViewController.swift */; };
 		8DEC17141CB13C9C004F87B3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC17131CB13C9C004F87B3 /* Colors.swift */; };
+		8DECEFB31CBE8247007C3E7D /* AlamofireConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DECEFB21CBE8247007C3E7D /* AlamofireConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,12 +34,14 @@
 
 /* Begin PBXFileReference section */
 		06CF4F2EC7EFD08AD48DBBDA /* Pods-Handbook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handbook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Handbook/Pods-Handbook.debug.xcconfig"; sourceTree = "<group>"; };
+		8DE4EE981CC3884800FABE5C /* Handbook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Handbook-Bridging-Header.h"; path = "Handbook/Handbook-Bridging-Header.h"; sourceTree = "<group>"; };
+		8DE4EE9A1CC41D4B00FABE5C /* Structures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 		8DEC16E31CAF2207004F87B3 /* Handbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEC16E61CAF2207004F87B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DEC16EB1CAF2207004F87B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8DEC16ED1CAF2207004F87B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8DEC16ED1CAF2207004F87B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Handbook/Assets.xcassets; sourceTree = "<group>"; };
 		8DEC16F01CAF2207004F87B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8DEC16F21CAF2207004F87B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DEC16F21CAF2207004F87B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Handbook/Info.plist; sourceTree = "<group>"; };
 		8DEC16F71CAF2207004F87B3 /* HandbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEC16FB1CAF2207004F87B3 /* HandbookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandbookTests.swift; sourceTree = "<group>"; };
 		8DEC16FD1CAF2207004F87B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +50,7 @@
 		8DEC170F1CB137F6004F87B3 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		8DEC17111CB139BD004F87B3 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		8DEC17131CB13C9C004F87B3 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		8DECEFB21CBE8247007C3E7D /* AlamofireConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireConfig.swift; sourceTree = "<group>"; };
 		B0DFA950594CB59724F84939 /* Pods_Handbook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Handbook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E013B6A2E740CFE8F2D28462 /* Pods-Handbook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handbook.release.xcconfig"; path = "Pods/Target Support Files/Pods-Handbook/Pods-Handbook.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +96,7 @@
 			children = (
 				8DEC16E51CAF2207004F87B3 /* Handbook */,
 				8DEC170E1CB137E8004F87B3 /* Libraries */,
+				8DECEFB11CBE8113007C3E7D /* Views */,
 				8DEC16FA1CAF2207004F87B3 /* HandbookTests */,
 				8DEC16E41CAF2207004F87B3 /* Products */,
 				458D9CCA05F8E53C17996F6D /* Pods */,
@@ -111,13 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				8DEC16E61CAF2207004F87B3 /* AppDelegate.swift */,
-				8DEC16EA1CAF2207004F87B3 /* Main.storyboard */,
-				8DEC16ED1CAF2207004F87B3 /* Assets.xcassets */,
-				8DEC16EF1CAF2207004F87B3 /* LaunchScreen.storyboard */,
-				8DEC16F21CAF2207004F87B3 /* Info.plist */,
-				8DEC17061CB11C09004F87B3 /* HandbookTableViewController.swift */,
-				8DEC170A1CB12EED004F87B3 /* SettingsTableViewController.swift */,
 				8DEC17111CB139BD004F87B3 /* RegistrationViewController.swift */,
+				8DEC170A1CB12EED004F87B3 /* SettingsTableViewController.swift */,
+				8DEC17061CB11C09004F87B3 /* HandbookTableViewController.swift */,
 			);
 			path = Handbook;
 			sourceTree = "<group>";
@@ -134,10 +136,24 @@
 		8DEC170E1CB137E8004F87B3 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				8DE4EE981CC3884800FABE5C /* Handbook-Bridging-Header.h */,
+				8DEC16F21CAF2207004F87B3 /* Info.plist */,
 				8DEC170F1CB137F6004F87B3 /* Misc.swift */,
 				8DEC17131CB13C9C004F87B3 /* Colors.swift */,
+				8DECEFB21CBE8247007C3E7D /* AlamofireConfig.swift */,
+				8DE4EE9A1CC41D4B00FABE5C /* Structures.swift */,
 			);
 			name = Libraries;
+			sourceTree = "<group>";
+		};
+		8DECEFB11CBE8113007C3E7D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8DEC16EA1CAF2207004F87B3 /* Main.storyboard */,
+				8DEC16ED1CAF2207004F87B3 /* Assets.xcassets */,
+				8DEC16EF1CAF2207004F87B3 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,7 +328,9 @@
 				8DEC17071CB11C0A004F87B3 /* HandbookTableViewController.swift in Sources */,
 				8DEC17101CB137F6004F87B3 /* Misc.swift in Sources */,
 				8DEC16E71CAF2207004F87B3 /* AppDelegate.swift in Sources */,
+				8DECEFB31CBE8247007C3E7D /* AlamofireConfig.swift in Sources */,
 				8DEC17121CB139BD004F87B3 /* RegistrationViewController.swift in Sources */,
+				8DE4EE9B1CC41D4B00FABE5C /* Structures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +359,7 @@
 				8DEC16EB1CAF2207004F87B3 /* Base */,
 			);
 			name = Main.storyboard;
+			path = Handbook;
 			sourceTree = "<group>";
 		};
 		8DEC16EF1CAF2207004F87B3 /* LaunchScreen.storyboard */ = {
@@ -349,6 +368,7 @@
 				8DEC16F01CAF2207004F87B3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = Handbook;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -374,7 +394,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -395,6 +415,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Handbook/Handbook-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -433,6 +454,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Handbook/Handbook-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -442,10 +464,21 @@
 			baseConfigurationReference = 06CF4F2EC7EFD08AD48DBBDA /* Pods-Handbook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Digits/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"\"${PODS_ROOT}/\"/**",
+					"\"${PODS_ROOT}/TwitterCore/iOS\"",
+				);
 				INFOPLIST_FILE = Handbook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.urfu.diplom.Handbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/\"/**";
 			};
 			name = Debug;
 		};
@@ -454,10 +487,20 @@
 			baseConfigurationReference = E013B6A2E740CFE8F2D28462 /* Pods-Handbook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Digits/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"\"${PODS_ROOT}/\"/**",
+					"\"${PODS_ROOT}/TwitterCore/iOS\"",
+				);
 				INFOPLIST_FILE = Handbook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.urfu.diplom.Handbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/\"/**";
 			};
 			name = Release;
 		};
