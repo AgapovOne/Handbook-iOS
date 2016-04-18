@@ -31,7 +31,6 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     textField.region = "RU"
     textField.delegate = self
     textField.text = "+7"
-    textField.becomeFirstResponder()
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -43,6 +42,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
       Digits.sharedInstance().logOut()
       KeychainSwift().set("http://ec2-52-49-236-105.eu-west-1.compute.amazonaws.com:3000", forKey: "apiUrl")
       apiUrl = KeychainSwift().get("apiUrl")
+      textField.becomeFirstResponder()
     }
   }
   

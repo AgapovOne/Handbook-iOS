@@ -14,7 +14,7 @@ import Dollar
 
 class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
   
-  lazy var employees: [Employee]? = nil
+  lazy var employees: [Employee] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,11 +27,9 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
       let loadingView = DGElasticPullToRefreshLoadingViewCircle()
       loadingView.tintColor = globalTint
       tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
-        
         self?.loadData((self?.tableView)!)
-        // Do not forget to call dg_stopLoading() at the end
         self?.tableView.dg_stopLoading()
-        }, loadingView: loadingView)
+      }, loadingView: loadingView)
       tableView.dg_setPullToRefreshFillColor(globalTintBackground)
       tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
       
@@ -43,14 +41,10 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
       tableView.tableFooterView = UIView()
       
       tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+      
+      self.loadData(tableView)
     }
   }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
   
   deinit {
     tableView.dg_removePullToRefresh()
@@ -73,6 +67,7 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
         case .Success(let data):
           let json = JSON(data)
           guard let array = json.array else {tableView.dg_stopLoading();return}
+          self.employees.removeAll()
           $.each(array) { (index, item) in
             let employee = Employee(
               name: item["name"].string,
@@ -83,10 +78,12 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
               company: item["companyName"].string,
               job: item["jobName"].string,
               department: item["departmentName"].string)
-            self.employees?.append(employee)
+            self.employees.append(employee)
           }
+          log.info(employees.debugDescription)
 //          { name: 'Кучин Сергей Сергеевич', phoneNumber: '79505439887', workNumber: '2043', email: 'kuchinsergey5002@gmail.com', additionalNumbs: '73432861080', companyName: 'ООО Ромашка', jobName: 'Инженер-программист', departmentName: 'Отдел разработок' }
           log.info("Finished loading")
+          self.employees.sortInPlace({$0.name < $1.name})
           tableView.dg_stopLoading()
           tableView.reloadData()
         }
@@ -117,13 +114,13 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
   }
 
   // MARK: - DZNEmptyDataSetDelegate
-  func emptyDataSetShouldDisplay(scrollView: UIScrollView) -> Bool {
-    return true
-  }
+//  func emptyDataSetShouldDisplay(scrollView: UIScrollView) -> Bool {
+//    return true
+//  }
   
-  func emptyDataSetShouldFadeIn(scrollView: UIScrollView) -> Bool {
-    return true
-  }
+//  func emptyDataSetShouldFadeIn(scrollView: UIScrollView) -> Bool {
+//    return true
+//  }
   
   func emptyDataSetShouldAllowScroll(scrollView: UIScrollView) -> Bool {
     return true
@@ -160,16 +157,23 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let emps = employees else { return 0 }
-    return emps.count
+    return employees.count
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    guard let emps = employees else {return tableView.dequeueReusableCellWithIdentifier("employeeCell", forIndexPath: indexPath)}
-    let cell = tableView.dequeueReusableCellWithIdentifier("employeeCell", forIndexPath: indexPath)
-    cell.textLabel?.text = emps[indexPath.row].name
-    cell.detailTextLabel?.text = emps[indexPath.row].phoneNumber
-    
+    let cell = tableView.dequeueReusableCellWithIdentifier("employeeCell", forIndexPath: indexPath) as! EmployeeCell
+    cell.nameLabel?.text = employees[indexPath.row].name
+    cell.workNumber?.text = employees[indexPath.row].workNumber
     return cell
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    let employeeTableViewController: EmployeeTableViewController = segue.destinationViewController as! EmployeeTableViewController
+    let cellIndex = self.tableView!.indexPathForSelectedRow!.row
+    employeeTableViewController.employee = self.employees[cellIndex]
   }
 }

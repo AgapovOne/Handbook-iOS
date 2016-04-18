@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1D247BE0A2FF8187CE48AB19 /* Pods_Handbook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFA950594CB59724F84939 /* Pods_Handbook.framework */; };
+		8DA5690D1CC4DA3800B4511E /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA5690C1CC4DA3800B4511E /* EmployeeCell.swift */; };
+		8DA5690F1CC4DCC500B4511E /* EmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA5690E1CC4DCC500B4511E /* EmployeeTableViewController.swift */; };
 		8DE4EE9B1CC41D4B00FABE5C /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE4EE9A1CC41D4B00FABE5C /* Structures.swift */; };
 		8DEC16E71CAF2207004F87B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC16E61CAF2207004F87B3 /* AppDelegate.swift */; };
 		8DEC16EC1CAF2207004F87B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DEC16EA1CAF2207004F87B3 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		06CF4F2EC7EFD08AD48DBBDA /* Pods-Handbook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handbook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Handbook/Pods-Handbook.debug.xcconfig"; sourceTree = "<group>"; };
+		8DA5690C1CC4DA3800B4511E /* EmployeeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmployeeCell.swift; path = Handbook/EmployeeCell.swift; sourceTree = "<group>"; };
+		8DA5690E1CC4DCC500B4511E /* EmployeeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewController.swift; sourceTree = "<group>"; };
 		8DE4EE981CC3884800FABE5C /* Handbook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Handbook-Bridging-Header.h"; path = "Handbook/Handbook-Bridging-Header.h"; sourceTree = "<group>"; };
 		8DE4EE9A1CC41D4B00FABE5C /* Structures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 		8DEC16E31CAF2207004F87B3 /* Handbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +124,7 @@
 				8DEC17111CB139BD004F87B3 /* RegistrationViewController.swift */,
 				8DEC170A1CB12EED004F87B3 /* SettingsTableViewController.swift */,
 				8DEC17061CB11C09004F87B3 /* HandbookTableViewController.swift */,
+				8DA5690E1CC4DCC500B4511E /* EmployeeTableViewController.swift */,
 			);
 			path = Handbook;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				8DEC16EA1CAF2207004F87B3 /* Main.storyboard */,
+				8DA5690C1CC4DA3800B4511E /* EmployeeCell.swift */,
 				8DEC16ED1CAF2207004F87B3 /* Assets.xcassets */,
 				8DEC16EF1CAF2207004F87B3 /* LaunchScreen.storyboard */,
 			);
@@ -326,6 +332,8 @@
 				8DEC170B1CB12EED004F87B3 /* SettingsTableViewController.swift in Sources */,
 				8DEC17141CB13C9C004F87B3 /* Colors.swift in Sources */,
 				8DEC17071CB11C0A004F87B3 /* HandbookTableViewController.swift in Sources */,
+				8DA5690F1CC4DCC500B4511E /* EmployeeTableViewController.swift in Sources */,
+				8DA5690D1CC4DA3800B4511E /* EmployeeCell.swift in Sources */,
 				8DEC17101CB137F6004F87B3 /* Misc.swift in Sources */,
 				8DEC16E71CAF2207004F87B3 /* AppDelegate.swift in Sources */,
 				8DECEFB31CBE8247007C3E7D /* AlamofireConfig.swift in Sources */,
@@ -477,6 +485,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.urfu.diplom.Handbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Handbook/Handbook-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/\"/**";
 			};
@@ -500,6 +509,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.urfu.diplom.Handbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Handbook/Handbook-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/\"/**";
 			};
 			name = Release;

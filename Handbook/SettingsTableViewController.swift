@@ -21,14 +21,10 @@ class SettingsTableViewController: FormViewController {
           $0.presentationMode = .SegueName(segueName: "SettingsToRegisterSegue", completionCallback:{  vc in vc.dismissViewControllerAnimated(true, completion: nil) })
         }
       +++ Section("Информация")
-        <<< LabelRow () {
-          $0.title = "Организация"
-          $0.value = "УрФУ"
-        }
-        <<< SwitchRow() {
-          $0.title = "Супер приложение"
-          $0.value = true
-        }
+//        <<< LabelRow () {
+//          $0.title = "Организация"
+//          $0.value = "УрФУ"
+//        }
         <<< LabelRow () {
           $0.title = "Версия"
           $0.value = UIApplication.versionBuild()

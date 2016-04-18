@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="employeeCell" textLabel="Sre-iv-GgA" detailTextLabel="Sc5-IP-Do7" rowHeight="54" style="IBUITableViewCellStyleValue1" id="f0a-7Z-e3V">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="employeeOldCell" textLabel="Sre-iv-GgA" detailTextLabel="Sc5-IP-Do7" rowHeight="54" style="IBUITableViewCellStyleValue1" id="f0a-7Z-e3V">
                                 <rect key="frame" x="0.0" y="92" width="320" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f0a-7Z-e3V" id="dvc-gA-pVb">
@@ -23,21 +23,54 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sre-iv-GgA">
-                                            <rect key="frame" x="15" y="17" width="31" height="20"/>
+                                            <rect key="frame" x="15" y="16" width="35" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sc5-IP-Do7">
-                                            <rect key="frame" x="248" y="19" width="37" height="17"/>
+                                            <rect key="frame" x="253" y="22" width="32" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="employeeCell" rowHeight="60" id="FVQ-ps-DFP" customClass="EmployeeCell" customModule="Handbook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="146" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FVQ-ps-DFP" id="imT-vl-dWk">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIw-nB-Es8">
+                                            <rect key="frame" x="16" y="21" width="38" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                            <color key="textColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqV-1C-pgi">
+                                            <rect key="frame" x="258" y="23" width="29" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eIw-nB-Es8" firstAttribute="centerY" secondItem="imT-vl-dWk" secondAttribute="centerY" id="2P4-ku-kyt"/>
+                                        <constraint firstItem="eIw-nB-Es8" firstAttribute="leading" secondItem="imT-vl-dWk" secondAttribute="leadingMargin" constant="8" id="3St-lT-huZ"/>
+                                        <constraint firstItem="EqV-1C-pgi" firstAttribute="baseline" secondItem="eIw-nB-Es8" secondAttribute="baseline" id="Zua-hi-QcI"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="EqV-1C-pgi" secondAttribute="trailing" constant="-8" id="gL0-qY-UUd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="eIw-nB-Es8" id="Fc5-xe-MNI"/>
+                                    <outlet property="workNumber" destination="EqV-1C-pgi" id="MjJ-jk-LGj"/>
+                                    <segue destination="dlP-40-qaK" kind="push" id="x6L-NE-8k8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -86,6 +119,16 @@
             </objects>
             <point key="canvasLocation" x="1026" y="767"/>
         </scene>
+        <!--Сотрудник-->
+        <scene sceneID="jdf-GL-LTf">
+            <objects>
+                <viewController title="Сотрудник" id="dlP-40-qaK" customClass="EmployeeTableViewController" customModule="Handbook" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="caf-1s-Aub"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TlS-k0-EJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1439" y="131"/>
+        </scene>
         <!--PhoneNumber-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -121,7 +164,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Контактная книга организаций доступна только сотрудникам." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ei5-Fj-xoc">
                                 <rect key="frame" x="16" y="72" width="288" height="41"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -155,7 +198,7 @@
         <scene sceneID="NqF-rN-3xR">
             <objects>
                 <navigationController title="Contacts" automaticallyAdjustsScrollViewInsets="NO" id="1nr-Vq-mO8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="HQm-aL-cme"/>
+                    <tabBarItem key="tabBarItem" title="Сотрудники" image="Contacts" selectedImage="Contacts-active" id="HQm-aL-cme"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DaA-Y9-8Kv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -174,7 +217,7 @@
         <scene sceneID="7Dv-Za-6bU">
             <objects>
                 <navigationController title="Settings" automaticallyAdjustsScrollViewInsets="NO" id="zcx-nj-AQa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="14b-Bc-fhD"/>
+                    <tabBarItem key="tabBarItem" title="Информация" image="Settings" selectedImage="Settings-active" id="14b-Bc-fhD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t8T-bj-TgX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -212,8 +255,14 @@
             <point key="canvasLocation" x="-872" y="339"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Contacts" width="28" height="28"/>
+        <image name="Contacts-active" width="28" height="28"/>
+        <image name="Settings" width="28" height="28"/>
+        <image name="Settings-active" width="28" height="28"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BIR-9t-STN"/>
+        <segue reference="X91-2j-qgS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15868747234344482" green="0.21822044253349304" blue="0.30320093035697937" alpha="1" colorSpace="calibratedRGB"/>
 </document>
