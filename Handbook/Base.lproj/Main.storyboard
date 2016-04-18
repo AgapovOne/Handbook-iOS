@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--Контакты-->
@@ -69,7 +70,10 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="eIw-nB-Es8" id="Fc5-xe-MNI"/>
                                     <outlet property="workNumber" destination="EqV-1C-pgi" id="MjJ-jk-LGj"/>
-                                    <segue destination="dlP-40-qaK" kind="push" id="x6L-NE-8k8"/>
+                                    <segue destination="dlP-40-qaK" kind="push" identifier="oneEmployeeSegue" id="x6L-NE-8k8">
+                                        <segue key="commit" inheritsFrom="parent" id="xc9-um-NVD"/>
+                                        <segue key="preview" inheritsFrom="commit" id="vwg-CR-hhN"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -145,7 +149,7 @@
                                 <rect key="frame" x="16" y="179" width="288" height="50"/>
                                 <color key="backgroundColor" red="0.15868747234344482" green="0.21822044253349304" blue="0.30320093035697937" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <state key="normal" title="Зарегистрироваться">
+                                <state key="normal" title="Продолжить">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -183,7 +187,7 @@
                             <constraint firstItem="Ei5-Fj-xoc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="rfj-gU-59c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Добро пожаловать" id="V0r-Vn-VG4"/>
+                    <navigationItem key="navigationItem" title="Авторизация" id="V0r-Vn-VG4"/>
                     <connections>
                         <outlet property="button" destination="3h1-PO-TGV" id="3Yd-GA-wMO"/>
                         <outlet property="textField" destination="OTH-gq-KbO" id="c5F-1l-hEA"/>
@@ -263,6 +267,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="X91-2j-qgS"/>
+        <segue reference="x6L-NE-8k8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15868747234344482" green="0.21822044253349304" blue="0.30320093035697937" alpha="1" colorSpace="calibratedRGB"/>
 </document>

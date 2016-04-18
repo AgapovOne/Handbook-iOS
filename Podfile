@@ -2,6 +2,7 @@
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.2'
 use_frameworks!
 
 target 'Handbook' do

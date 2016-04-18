@@ -19,7 +19,7 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let phone = KeychainSwift().get("apiUrl")
+    let phone = KeychainSwift().get("phoneNumber")
     if (phone == nil) {
       self.performSegueWithIdentifier("initialRegistrationSegue", sender: nil)
     } else {
@@ -51,6 +51,8 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
   }
   
   func loadData(tableView:UITableView) -> Bool {
+    self.employees.removeAll()
+    
     guard let api = KeychainSwift().get("apiUrl") else {return false}
     guard let employees = KeychainSwift().get("requests.employees") else {return false}
     guard let phone = KeychainSwift().get("phoneNumber") else {return false}
@@ -64,10 +66,10 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
         case .Failure(let err):
           log.error(err.debugDescription)
           tableView.dg_stopLoading()
+          tableView.reloadData()
         case .Success(let data):
           let json = JSON(data)
           guard let array = json.array else {tableView.dg_stopLoading();return}
-          self.employees.removeAll()
           $.each(array) { (index, item) in
             let employee = Employee(
               name: item["name"].string,
@@ -172,8 +174,10 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    let employeeTableViewController: EmployeeTableViewController = segue.destinationViewController as! EmployeeTableViewController
-    let cellIndex = self.tableView!.indexPathForSelectedRow!.row
-    employeeTableViewController.employee = self.employees[cellIndex]
+    if segue.identifier == "oneEmployeeSegue" {
+      let employeeTableViewController: EmployeeTableViewController = segue.destinationViewController as! EmployeeTableViewController
+      let cellIndex = self.tableView!.indexPathForSelectedRow!.row
+      employeeTableViewController.employee = self.employees[cellIndex]
+    }
   }
 }
