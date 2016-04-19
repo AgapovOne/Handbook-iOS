@@ -19,6 +19,7 @@ target 'Handbook' do
   pod 'Eureka'
   pod 'DGElasticPullToRefresh'
   pod 'DZNEmptyDataSet'
+  pod 'JDStatusBarNotification'
   # Fabric
   pod 'Fabric'
   pod 'Crashlytics'

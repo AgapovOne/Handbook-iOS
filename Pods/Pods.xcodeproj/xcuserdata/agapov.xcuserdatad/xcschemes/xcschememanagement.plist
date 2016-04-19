@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JDStatusBarNotification.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>KeychainSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,17 +77,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0AAD490615372433B29854412A64538C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>115824B7CB2E76E5ACB836A251E79404</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>35FAFEC4CC2C2EBECEE1C9DCC300D424</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +127,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B2F49E9C3BDD9FDBFB5A036A7A9E3B7D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BFEF320928D64B617E57194BE75FD8FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C050EB90AEDA8E52289FB70BB490AC44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E1AACD6814034DF06704CEF71A681D99</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EAF4A2C2E6E9C1AF17734F61BD692749</key>
+		<key>F58DF1AFAA6BF48B655E2D443DF72DEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

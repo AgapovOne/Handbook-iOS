@@ -46,9 +46,8 @@ class EmployeeTableViewController: FormViewController {
     <<< ActionSheetRow<String>() {
       $0.title = "Позвонить"
       $0.selectorTitle = "Кому вы хотите позвонить?"
-      $0.options = [emp.phoneNumber, emp.workNumber]
+      $0.options = [emp.phoneNumber!, emp.workNumber!]
       $0.value = "Позвонить"
-      $0.
     }
   }
 }

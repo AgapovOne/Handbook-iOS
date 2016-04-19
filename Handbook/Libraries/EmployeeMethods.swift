@@ -10,13 +10,12 @@ import Foundation
 import KeychainSwift
 
 class UserManipulation {
-  func mobileCall(name:String, customerName:String, phoneNumber:String) {
+  
+  func mobileCall(phoneNumber:String) {
     defer {
       log.info("mobileCall::end")
     }
     log.info("mobileCall::start")
-    
-    Event().buttonClicked("Позвонить на мобильный")
     UIApplication.sharedApplication().openURL(NSURL(string: "tel://+\(phoneNumber)")!)
   }
 }
