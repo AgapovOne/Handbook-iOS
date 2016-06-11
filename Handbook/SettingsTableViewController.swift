@@ -10,7 +10,7 @@ import UIKit
 import Eureka
 import KeychainSwift
 
-class SettingsTableViewController: FormViewController {
+class SettingsTableViewController: FormViewController, UIToolbarDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,7 +28,7 @@ class SettingsTableViewController: FormViewController {
         Section("Информация")
         <<< LabelRow () {
           $0.title = "Ваш телефон"
-          $0.value = KeychainSwift().get("phoneNumber")
+          $0.value = beautyPhoneNumber(KeychainSwift().get("phoneNumber")!)
         }
         <<< LabelRow () {
           $0.title = "Версия"

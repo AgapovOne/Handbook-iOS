@@ -9,6 +9,7 @@
 import Foundation
 import Watchdog
 import Loggerithm
+import PhoneNumberKit
 
 let watchdog = Watchdog(threshold: 0.6, strictMode: true)
 
@@ -27,11 +28,21 @@ extension UIApplication {
   class func versionBuild() -> String {
     let version = appVersion(), build = appBuild()
     
-    return version == build ? "\(version)" : "\(version)(\(build))"
+//    return version == build ? "\(version)" : "\(version)(\(build))"
+    return "\(version)"
   }
 }
 
 func urlPhoneNumber(phone:String) -> String {
   let ph = phone.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("+", withString: "").stringByReplacingOccurrencesOfString("-", withString: "")
   return ph
+}
+
+func beautyPhoneNumber(phone:String) -> String? {
+  do {
+    let phoneNumber = try PhoneNumber(rawNumber:phone, region:"RU")
+    return phoneNumber.toInternational()
+  } catch {
+    return nil
+  }
 }

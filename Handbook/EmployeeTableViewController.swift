@@ -8,6 +8,7 @@
 
 import UIKit
 import Eureka
+import JDStatusBarNotification
 
 class EmployeeTableViewController: FormViewController {
   
@@ -33,21 +34,27 @@ class EmployeeTableViewController: FormViewController {
     +++ Section("Телефоны")
     <<< LabelRow() {
       $0.title = "Мобильный"
-      $0.value = emp.phoneNumber
-    }
+      $0.value = beautyPhoneNumber(emp.phoneNumber!)
+    }.onCellSelection({ (cell, row) in
+      UIPasteboard.generalPasteboard().string = row.value!
+      JDStatusBarNotification.showWithStatus("Телефон скопирован", dismissAfter: 1.5)
+    })
     <<< LabelRow() {
       $0.title = "Рабочий телефон"
       $0.value = emp.workNumber
-    }
+    }.onCellSelection({ (cell, row) in
+      UIPasteboard.generalPasteboard().string = row.value!
+      JDStatusBarNotification.showWithStatus("Телефон скопирован", dismissAfter: 1.5)
+    })
     <<< LabelRow() {
       $0.title = "Остальные телефоны"
       $0.value = emp.additionalNumbers
     }
-    <<< ActionSheetRow<String>() {
-      $0.title = "Позвонить"
-      $0.selectorTitle = "Кому вы хотите позвонить?"
-      $0.options = [emp.phoneNumber!, emp.workNumber!]
-      $0.value = "Позвонить"
-    }
+    +++ Section("Звонок")
+    <<< ButtonRow() {
+      $0.title = "Позвонить на мобильный"
+      }  .onCellSelection({ (cell, row) in
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://+\(emp.phoneNumber!)")!)
+      })
   }
 }
