@@ -164,6 +164,12 @@ class HandbookTableViewController: UITableViewController, DZNEmptyDataSetSource,
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
   
+  override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    
+    guard self.employees.count != 0 else { return false }
+    return true
+  }
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "oneEmployeeSegue" {
       let employeeTableViewController: EmployeeTableViewController = segue.destinationViewController as! EmployeeTableViewController
